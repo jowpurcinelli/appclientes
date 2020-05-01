@@ -1,36 +1,73 @@
-var listElement = document.querySelector('#cliente ul');
-var inputElement = document.querySelector('#cliente input');
-var buttonElement = document.querySelector('#cliente button');
+const listsContainer = document.querySelector('[data-lists]')
+const newListForm = document.querySelector('[data-new-client-form]')
+const newListInput = document.querySelector('[data-new-list-input]')
+const addButton = document.querySelector('[button-add-to-list]')
+
+// const LOCAL_STORAGE_LIST_KEY = 'task.lists'
+
+
+// let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
+let lists = [{
+    id: 1,
+    name: 'Maria',
+    adress: ''
+
+}, {
+    id: 2,
+    name: 'Jose',
+    adress: ''
+}]
 
 
 
-var clientes = [
-    'Paulo',
-    'Roberta',
-    'Joao'
+newListForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const listName = newListInput.Value
+    if (listName == null || listName === '') return
+    const list = createList(listName)
+    newListInput.value = null
+    lists.push(list)
+    saveAndRender()
+    
+})
 
-];
-// 'essa funcao percore a lista dos clientes'
+function createList(name){
+    return { id: Date.now().toString(), name: name, adress: [] }
+}
 
-function renderClientes() {
-    for (lista of clientes) {
-        var listaElement = document.createElement('li');
-        var listaText = document.createTextNode(lista);
+function saveAndRender() {
+    save()
+    render()
+}
 
-        listaElement.appendChild(listaText);
-        listElement.appendChild(listaElement);
+function save() {
+    localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
+}
+
+
+ 
+
+
+
+    
+
+
+function render() {
+    
+    clearElement(listsContainer)
+    lists.forEach(list => {
+        const listElement = document.createElement('li')
+        listElement.dataset.listId = list.id
+        listElement.classList.add('list-name')
+        listElement.innerText = list.name
+        listsContainer.appendChild(listElement)        
+    })
+}
+
+function clearElement(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild)
     }
 }
 
-renderClientes();
-
-
-function addCliente() {
-    var todoText = inputElement.value;
-
-    clientes.push(listaText);
-    inputElement.value = '';
-    renderClientes();
-}
-
-buttonElement.onclick = addCliente;
+render()

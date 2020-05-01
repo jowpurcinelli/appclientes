@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <link rel="stylesheet" href="style.css">    
+    <head>
+        <meta charset="utf-8" />
+        <title>Clients</title>
+        <h1>Boulangerie</h1>
+    </head>
+    <body>
+        <div class="allClients">
+            <h2 class="list-of-clients-title">Meus Clientes</h2>
+            <ul class="list-of-clients" data-lists>
+                <!-- <li class="client-name">Work</li> -->
+            </ul>
+        
+
+        
+            <form action="" data-new-client-form>
+                <input 
+                    type="text"
+                    class="newClientname"
+                    data-new-list-input
+                    placeholder="New client Name"
+                    aria-label="New client name"
+                />
+                <button
+                    class="btn client" button-add-to-list
+                    aria-label="create new client">+</button>
+            
+            </form>
+        </div>
+        <script src="clientes.js"></script>    
+    </body>
+</html>
