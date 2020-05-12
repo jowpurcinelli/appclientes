@@ -1,0 +1,5 @@
+clients: [
+    {"name": "maria", "adress": "silva leme, 399"},
+    {"name": "joao", "adress": "pires pimentel, 599"},
+    {"name": "jessica", "adress": "greenroad, 312"}
+]
