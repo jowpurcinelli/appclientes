@@ -7,16 +7,6 @@ const addButton = document.querySelector('[button-add-to-list]')
 
 
 // let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
-let lists = [{
-    id: 1,
-    name: 'Maria',
-    adress: ''
-
-}, {
-    id: 2,
-    name: 'Jose',
-    adress: ''
-}]
 
 
 
