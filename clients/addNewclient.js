@@ -10,12 +10,12 @@ const addButton = document.querySelector('[button-add-to-list]')
 let lists
     
 //     name: 'Maria',
-//     adress: 'la puta madre'
+//     adress: ''
 
 // }, {
     
 //     name: 'Jose',
-//     adress: 'la puta q te pario'
+//     adress: ''
 // }]
 
 
